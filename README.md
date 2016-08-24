@@ -11,5 +11,5 @@ A tool to create GIF with custom blinking Christmas lights message as seen in TV
 --------------------------------------------------------------------------------
 Acknowledgements :
 --------------------------------------------------------------------------------
-https://github.com/antimatter15/jsgif
+https://github.com/antimatter15/jsgif  
 https://media.giphy.com/media/3oz8xvdfa0apJ3oWVW/giphy.gif
