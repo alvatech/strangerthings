@@ -1,0 +1,28 @@
+.container{
+   width: 100%;
+   height: 100vh;
+   background-image: url("wallpaper.jpg");
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+}
+
+.canvasContainer{
+    width:600px; 
+    margin: 0 auto;     
+}
+
+.startButton{
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+}
+
+.inputContainer{
+    width: 500px;
+    margin-top:50px;
+}
+
+.enterText{
+    font-size: 20px;
+    color: white;
+}
