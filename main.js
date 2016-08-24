@@ -78,7 +78,7 @@ function animate(){
          var binary_gif = encoder.stream().getData();
          data_url = 'data:image/gif;base64,'+encode64(binary_gif); 
          document.getElementById("startbutton").disabled = false;
-         location.href= data_url;
+         window.location.href= data_url;
     }
 }
 
@@ -97,15 +97,3 @@ function drawLight(x, y, radius, ctx) {
     ctx.fill();
     ctx.restore();
 } 
-
-function downloadGIF() {
-  var element = document.createElement('a');
-  element.setAttribute('href', data_url);
-  
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
-}  
