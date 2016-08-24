@@ -100,8 +100,7 @@ function drawLight(x, y, radius, ctx) {
 function downloadGIF() {
   var element = document.createElement('a');
   element.setAttribute('href', data_url);
-  element.setAttribute('download', userText + ".gif");
-
+  
   element.style.display = 'none';
   document.body.appendChild(element);
 
