@@ -72,12 +72,13 @@ function animate(){
         // request new frame
         setTimeout(function() {
             animate();
-        }, 600);
+        }, 400);
     }else{
          encoder.finish();
          var binary_gif = encoder.stream().getData();
          data_url = 'data:image/gif;base64,'+encode64(binary_gif); 
          document.getElementById("startbutton").disabled = false;
+         location.href= data_url;
     }
 }
 
