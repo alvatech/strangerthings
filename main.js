@@ -78,6 +78,7 @@ function animate(){
          var binary_gif = encoder.stream().getData();
          data_url = 'data:image/gif;base64,'+encode64(binary_gif); 
          document.getElementById("startbutton").disabled = false;
+         document.getElementById("spinnerDiv").style.visibility = 'visible'; 
          window.location.href= data_url;
     }
 }
