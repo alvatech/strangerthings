@@ -74,13 +74,11 @@ function animate(){
     encoder.addFrame(context);
     
     if (pendingFrames > 0){
-        // request new frame
-        setTimeout(function() {
-            animate();
-        }, 400);
+        animate();
     }else{
          encoder.finish();
-         createGIF();      
+         createGIF();
+         replaceCanvasWithOutput();      
     }
 }
 
