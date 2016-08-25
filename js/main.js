@@ -74,7 +74,9 @@ function animate(){
     encoder.addFrame(context);
     
     if (pendingFrames > 0){
-        animate();
+         setTimeout(function() {
+            animate();
+        }, 50);
     }else{
          encoder.finish();
          createGIF();
