@@ -25,12 +25,16 @@ var encoder = new GIFEncoder();
 encoder.setRepeat(0);//0  -> loop forever
 encoder.setDelay(500); //go to next frame every n milliseconds
 
-
+showSpinner(false);
 
 /* Handles the start button click*/
 function onStartClick(){
+    canvas.style.display = "inline-block";
+    document.getElementById("outputGIF").src = ""; 
 	document.getElementById("downloadContainer").style.display  = "none";
+    showSpinner(true);
     userText = document.getElementById('inputlg').value;
+
     if (userText != null){
          if (userText == ''){
              userText = "RUN";
@@ -75,13 +79,17 @@ function animate(){
             animate();
         }, 400);
     }else{
-         document.getElementById("spinnerDiv").style.visibility = 'visible'; 
          encoder.finish();
-         var binary_gif = encoder.stream().getData();
-         imageData = encode64(binary_gif); 
-         document.getElementById("startbutton").disabled = false;
-		 downloadGIF();
+         createGIF();      
     }
+}
+
+function createGIF(){
+    var binary_gif = encoder.stream().getData();
+    imageData = encode64(binary_gif); 
+    document.getElementById("startbutton").disabled = false;
+    showSpinner(false);
+    initDownload();
 }
 
 function drawLight(x, y, radius, ctx) {
@@ -100,7 +108,7 @@ function drawLight(x, y, radius, ctx) {
     ctx.restore();
 } 
 
-function downloadGIF(){
+function initDownload(){
 	document.getElementById("downloadContainer").style.display  = "block";
 	Downloadify.create('downloadbutton',{
 					filename: userText + ".gif",
@@ -113,4 +121,17 @@ function downloadGIF(){
 					transparent: true,
 					append: false
 				});
+}
+
+function showSpinner(visible){
+    if (visible){
+        document.getElementById("spinnerDiv").style.display = 'block';
+    }else{
+        document.getElementById("spinnerDiv").style.display = 'none';
+    }
+}
+
+function replaceCanvasWithOutput(){
+    canvas.style.display = "none";
+    document.getElementById("outputGIF").src = 'data:image/gif;base64,' + imageData;
 }
