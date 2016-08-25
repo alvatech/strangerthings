@@ -37,7 +37,7 @@
     animation: spin 2s linear infinite;
     position:absolute;
     top: 450px;
-    left: 45%;
+    left: 47%;
 }
 
 @keyframes spin {
