@@ -18,7 +18,7 @@ backgroundImgLight.crossOrigin = "Anonymous";
 var nextCharIndex = 0;
 var userText = '';
 var pendingFrames = 0;
-var data_url;
+var imageData;
 
 // Intialize GIF encoder
 var encoder = new GIFEncoder();
@@ -78,7 +78,7 @@ function animate(){
          document.getElementById("spinnerDiv").style.visibility = 'visible'; 
          encoder.finish();
          var binary_gif = encoder.stream().getData();
-         data_url = 'data:image/gif;base64,'+encode64(binary_gif); 
+         imageData = encode64(binary_gif); 
          document.getElementById("startbutton").disabled = false;
 		 downloadGIF();
     }
@@ -104,7 +104,7 @@ function downloadGIF(){
 	document.getElementById("downloadContainer").style.display  = "block";
 	Downloadify.create('downloadbutton',{
 					filename: userText + ".gif",
-					data: data_url,
+					data: imageData,
 					dataType : "base64",
 					swf: 'media/downloadify.swf',
 					downloadImage: 'images/download.png',
