@@ -49,7 +49,7 @@ function onStartClick(){
 
          userText = userText.replace(/[^a-zA-Z]+/g, '');
          userText = userText.toLowerCase();
-         pendingFrames = userText.length * 2;
+         pendingFrames = userText.length * 2 + 1; // One extra frame at the end
          nextCharIndex = 0;
 
          // start the rendering
