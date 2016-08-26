@@ -1,6 +1,13 @@
 var xCords = [110 ,134 ,157 ,179 ,209 ,234 ,254 ,285 ,90 ,118 ,144 ,167 ,191 ,226 ,263 ,296 ,333 ,55 ,88 ,117 ,164 ,200 ,239 ,277 ,313 ,354];
 var yCords = [83 ,84 ,86 ,90 ,88 ,88 ,85 ,85 ,132 ,135 ,136 ,140 ,141 ,138 ,134 ,130 ,133 ,204 ,213 ,214 ,216 ,211 ,212 ,210 ,211 ,219];
 
+window.requestAnimFrame = (function(callback) {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+    function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+    })();
+
 var canvas = document.getElementById('canvas'),
 context = canvas.getContext('2d');
 
@@ -74,9 +81,10 @@ function animate(){
     encoder.addFrame(context);
     
     if (pendingFrames > 0){
-         setTimeout(function() {
-            animate();
-        }, 50);
+          // request new frame
+        requestAnimFrame(function() {
+          animate();
+        });
     }else{
          encoder.finish();
          createGIF();
