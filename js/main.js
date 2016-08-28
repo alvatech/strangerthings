@@ -75,6 +75,10 @@ function animate(){
     }else{
         context.drawImage(backgroundImg, 0, 0); 
     }
+    
+    context.font = '15pt Calibri';
+    context.fillStyle = 'white';
+    context.fillText('https://alvatech.github.io/strangerthings/', 50, 625);
 
     pendingFrames--;
 
